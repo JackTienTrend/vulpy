@@ -38,4 +38,12 @@ jobs:
       # Runs the security scan action
       - name: Security and Licence Scan
         uses: ShiftLeftSecurity/scan-action@v1.3.0
+        with:
+          output: reports
+
+      # Upload the scan results
+      - name: Upload report
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: scan_reports
             
